@@ -27,6 +27,19 @@ let isProduction = process.env.NODE_ENV === 'production';
 
 let app = express();
 
+// port setup
+const port = process.env.PORT || 9000;
+const server = app.listen(port, () => {
+    if (app.get('env') === 'test') return;
+
+    console.log('Express app started on port ' + port);
+});
+
+server.on('close', () => {
+    winston.log('debug', 'Express server shut down: ' + config.loggerDate());
+});
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -37,7 +50,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-/*** Start - Router & Routes ***/
+/*** Begin - Router & Routes ***/
 
 // Routers
 let projectsRouter = require('./routes/projects');
@@ -76,17 +89,18 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
+
 // CSV Transformation
-projectsTransform.transformObjToCSV();
-campaignsTransform.transformObjToCSV();
-experimentsTransform.transformObjToCSV();
-pagesTransform.transformObjToCSV();
-audiencesTransform.transformObjToCSV();
-attributesTransform.transformObjToCSV();
-pagesTransform.transformObjToCSV();
-eventsTransform.transformObjToCSV();
-//resultsTransform.transformObjToCSV();
-planTransform.transformObjToCSV();
+// projectsTransform.transformObjToCSV();
+// campaignsTransform.transformObjToCSV();
+// experimentsTransform.transformObjToCSV();
+// pagesTransform.transformObjToCSV();
+// audiencesTransform.transformObjToCSV();
+// attributesTransform.transformObjToCSV();
+// pagesTransform.transformObjToCSV();
+// eventsTransform.transformObjToCSV();
+// resultsTransform.transformObjToCSV();
+// planTransform.transformObjToCSV();
 
 // async/await - check out a client
 (async () => {
@@ -95,6 +109,8 @@ planTransform.transformObjToCSV();
         const res = await client.query(
             'SELECT * FROM tbl_experiments WHERE campaign_id = $1', [1234]);
 
+        winston.log('debug', 'query result returned: ' + res.rowCount +
+            ' row(s)' + ' - ' + config.loggerDate());
         winston.log('debug', 'query result returned: ' + res.rowCount +
             ' row(s)' + ' - ' + config.loggerDate());
         winston.log('debug', 'query result data: ' +

@@ -1,10 +1,8 @@
-const express = require('express');
-const jsonUtils = require('../helpers/json-utils');
-const config = require('../config/config.js');
+const config = require('../config/config');
 let winston = require('../config/winston');
 //const Promise = require('bluebird');
 const rp = require('request-promise-native');
-const projects = require('../routes/projects');
+
 
 //const delay = require('delay');
 
@@ -22,18 +20,20 @@ module.exports.loggingDate = loggingDate();
  */
 async function httpRequest (options) {
 
-    winston.log('debug', 'HTTP Options - ' + options + ' - ' + new Date());
+    winston.log('debug', 'HTTP Options - ' + options + ' - ' +
+        config.loggerDate());
 
     try {
         let response = await rp(options);
 
         winston.log('debug', 'HTTP Request - ' + config.messages.statusCode +
-            response.statusCode + ' - ' + new Date());
+            response.statusCode + ' - ' + config.loggerDate());
 
         return (response.body);
 
     } catch (err) {
-        winston.log('error', config.messages.requestError + err + ' - ' + new Date());
+        winston.log('error', config.messages.requestError + err + ' - ' +
+            config.loggerDate());
     }
 
 }

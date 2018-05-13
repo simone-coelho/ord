@@ -1,3 +1,12 @@
+DROP TABLE IF EXISTS tbl_attributes;
+DROP TABLE IF EXISTS tbl_audiences;
+DROP TABLE IF EXISTS tbl_campaigns;
+DROP TABLE IF EXISTS tbl_events;
+DROP TABLE IF EXISTS tbl_experiments;
+DROP TABLE IF EXISTS tbl_pages;
+DROP TABLE IF EXISTS tbl_plans;
+DROP TABLE IF EXISTS tbl_projects;
+
 CREATE TABLE tbl_experiments (
   project_id BIGINT NOT NULL, 
   type VARCHAR, 
@@ -137,26 +146,160 @@ CREATE TABLE tbl_audiences (
   created TIMESTAMP,
   id BIGINT NOT NULL,
   last_modified TIMESTAMP,
-  CONSTRAINT tbl_attributes_pk PRIMARY KEY (project_id, id) 
+  CONSTRAINT tbl_audiences_pk PRIMARY KEY (project_id, id) 
 );
 
 CREATE TABLE tbl_plans (
   account_id BIGINT NOT NULL,
   plan_name VARCHAR,
-  "product_usages.allocation_term_in_months" DECIMAL,
+  "product_usages.allocation_term_in_months" BIGINT,
   "product_usages.end_time" TIMESTAMP,
   "product_usages.last_update_time" TIMESTAMP,
-  "product_usages.overage_cents_per_visitor" DECIMAL,
+  "product_usages.overage_cents_per_visitor" BIGINT,
   "product_usages.product_name" VARCHAR,
-  "product_usages.projects.project_id" DECIMAL,
+  "product_usages.projects.project_id" BIGINT,
   "product_usages.projects.project_name" VARCHAR,
-  "product_usages.projects.project_usage" DECIMAL,
+  "product_usages.projects.project_usage" BIGINT,
   "product_usages.start_time" TIMESTAMP,
-  "product_usages.usage" DECIMAL,
-  "product_usages.usage_allowance" DECIMAL,
+  "product_usages.usage" BIGINT,
+  "product_usages.usage_allowance" BIGINT,
   status VARCHAR,
   unit_of_measurement VARCHAR,
-  CONSTRAINT tbl_attributes_pk PRIMARY KEY (account_id) 
+  CONSTRAINT tbl_plans_pk PRIMARY KEY (account_id) 
+);
+
+CREATE TABLE tbl_events (
+  archived BOOLEAN,
+  category VARCHAR,
+  "config.selector" VARCHAR,
+  description VARCHAR,
+  event_type VARCHAR,
+  key VARCHAR NOT NULL,
+  name VARCHAR,
+  page_id BIGINT NOT NULL,
+  project_id BIGINT NOT NULL,
+  created TIMESTAMP,
+  id BIGINT NOT NULL,
+  is_classic BOOLEAN,
+  is_editable BOOLEAN,
+  CONSTRAINT tbl_events_pk PRIMARY KEY (project_id, id, page_id) 
+);
+
+CREATE TABLE tbl_pages (
+  edit_url VARCHAR,
+  name VARCHAR,
+  project_id BIGINT NOT NULL,
+  activation_code VARCHAR,
+  activation_type VARCHAR,
+  archived BOOLEAN,
+  category VARCHAR,
+  conditions VARCHAR,
+  key VARCHAR NOT NULL,
+  page_type VARCHAR,
+  created TIMESTAMP,
+  id BIGINT NOT NULL,
+  last_modified TIMESTAMP,
+  CONSTRAINT tbl_pages_pk PRIMARY KEY (project_id, id) 
+);
+
+CREATE TABLE tbl_projects (
+  name VARCHAR,
+  confidence_threshold BIGINT,
+  dcp_service_id BIGINT,
+  description VARCHAR,
+  platform VARCHAR,
+  sdks VARCHAR,
+  status VARCHAR,
+  "web_snippet.enable_force_variation" BOOLEAN,
+  "web_snippet.exclude_disabled_experiments" BOOLEAN,
+  "web_snippet.exclude_names" BOOLEAN,
+  "web_snippet.include_jquery" BOOLEAN,
+  "web_snippet.ip_anonymization" BOOLEAN,
+  "web_snippet.ip_filter" VARCHAR,
+  "web_snippet.library" VARCHAR,
+  "web_snippet.project_javascript" VARCHAR,
+  "web_snippet.code_revision" BOOLEAN,
+  "web_snippet.js_file_size" BIGINT,
+  account_id BIGINT,
+  created TIMESTAMP,
+  id BIGINT NOT NULL,
+  is_classic BOOLEAN,
+  last_modified TIMESTAMP,
+  socket_token VARCHAR,
+  CONSTRAINT tbl_projects_pk PRIMARY KEY (id) 
+);
+
+CREATE TABLE tbl_campaigns (
+  project_id BIGINT NOT NULL,
+  "changes.type" VARCHAR,
+  "changes.allow_additional_redirect" BOOLEAN,
+  "changes.async" BOOLEAN,
+  "changes.attributes.class" VARCHAR,
+  "changes.attributes.hide" BOOLEAN,
+  "changes.attributes.href" VARCHAR,
+  "changes.attributes.html" VARCHAR,
+  "changes.attributes.remove" BOOLEAN,
+  "changes.attributes.src" VARCHAR,
+  "changes.attributes.style" VARCHAR,
+  "changes.attributes.text" VARCHAR,
+  "changes.config" VARCHAR,
+  "changes.css.background-color" VARCHAR,
+  "changes.css.background-image" VARCHAR,
+  "changes.css.border-color" VARCHAR,
+  "changes.css.border-style" VARCHAR,
+  "changes.css.border-width" VARCHAR,
+  "changes.css.color" VARCHAR,
+  "changes.css.font-size" VARCHAR,
+  "changes.css.font-weight" VARCHAR,
+  "changes.css.height" VARCHAR,
+  "changes.css.position" VARCHAR,
+  "changes.css.width" VARCHAR,
+  "changes.dependencies" VARCHAR,
+  "changes.destination" VARCHAR,
+  "changes.destination_function" VARCHAR,
+  "changes.name" VARCHAR,
+  "changes.operator" VARCHAR,
+  "changes.preserve_parameters" BOOLEAN,
+  "changes.rearrange" VARCHAR,
+  "changes.selector" VARCHAR,
+  "changes.value" VARCHAR,
+  "changes.extension_id" VARCHAR,
+  "changes.id" VARCHAR,
+  "changes.src" VARCHAR,
+  experiment_priorities VARCHAR,
+  holdback BIGINT,
+  "metrics.aggregator" VARCHAR,
+  "metrics.event_id" BOOLEAN,
+  "metrics.field" VARCHAR,
+  "metrics.scope" VARCHAR,
+  "metrics.winning_direction" VARCHAR,
+  name VARCHAR,
+  page_ids VARCHAR,
+  "url_targeting.conditions" VARCHAR,
+  "url_targeting.edit_url" VARCHAR,
+  "url_targeting.activation_code" VARCHAR,
+  "url_targeting.activation_type" VARCHAR,
+  "url_targeting.key" VARCHAR,
+  "url_targeting.page_id" BIGINT,
+  created TIMESTAMP,
+  earliest TIMESTAMP,
+  id BIGINT NOT NULL,
+  last_modified TIMESTAMP,
+  latest TIMESTAMP,
+  status VARCHAR,
+  row_id BIGSERIAL, CONSTRAINT tbl_campaigns_pk PRIMARY KEY (project_id, id, row_id)
+);
+
+CREATE TABLE tbl_api_config (
+  id BIGINT NOT NULL,
+  username character varying(255) NOT NULL,
+  api_token VARCHAR,
+  account_id BIGINT NOT NULL,
+  description varchar,
+  notes varchar,
+  account_name character varying(255),
+  valid_token BOOLEAN,
+  CONSTRAINT tbl_api_config_pk PRIMARY KEY (id, account_id)
 );
 
 

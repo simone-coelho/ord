@@ -1,11 +1,12 @@
 const pg = require('pg');
-let winston = require('../config/winston');
+const winston = require('../config/winston');
+const config = require('../config/config.js');
 
 // create a config to configure both pooling behavior
 // and client options
 // note: all config is optional and the environment variables
 // will be read if the config is not present
-let config = {
+let dbConfig = {
     user: 'postgres', //env var: PGUSER
     database: 'optly_db', //env var: PGDATABASE
     password: 'postgres', //env var: PGPASSWORD
@@ -18,7 +19,7 @@ let config = {
 // this initializes a connection pool
 // it will keep idle connections open for 30 seconds
 // and set a limit of maximum 10 idle clients
-const pool = new pg.Pool(config);
+const pool = new pg.Pool(dbConfig);
 
 pool.on('error', function (err, client) {
     // if an error is encountered by a client while it sits idle in the pool
@@ -33,15 +34,15 @@ pool.on('error', function (err, client) {
 });
 
 pool.on('connect', function (client) {
-    winston.log('debug', 'pg client connected: ' + new Date());
+    winston.log('debug', 'pg client connected: ' + config.loggerDate());
 });
 
 pool.on('acquire', function (client, callback) {
-    winston.log('debug', 'pg client acquired: ' + new Date());
+    winston.log('debug', 'pg client acquired: ' + config.loggerDate());
 });
 
 pool.on('remove', function (client) {
-    winston.log('debug', 'pg client removed: ' + new Date());
+    winston.log('debug', 'pg client removed: ' + config.loggerDate());
 });
 
 // export the query method for passing queries to the pool

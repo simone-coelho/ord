@@ -1,5 +1,6 @@
 let winston = require('../config/winston');
 const Promise = require('bluebird');
+const config = require('../config/config.js');
 
 /**
  *
@@ -46,7 +47,8 @@ module.exports = {
                     recurse(jsonObject, '');
                 } else {
                     winston.log(
-                        'debug', 'Function flattenJson: Object is null - ' + new Date());
+                        'debug', 'Function flattenJson: Object is null - ' +
+                        config.loggerDate());
                     return reject('Function flattenJson: Object is null');
                 }
                 return resolve(flatObject);

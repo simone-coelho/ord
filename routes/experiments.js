@@ -1,8 +1,8 @@
-let express = require('express');
-let router = express.Router();
-let jsonUtils = require('../helpers/json-utils');
-let config = require('../config/config.js');
-let winston = require('../config/winston');
+const express = require('express');
+const router = express.Router();
+const jsonUtils = require('../helpers/json-utils');
+const config = require('../config/config');
+const winston = require('../config/winston');
 
 /* GET experiments listing. */
 router.get('/', function (req, res, next) {

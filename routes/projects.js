@@ -1,6 +1,5 @@
 let express = require('express');
 let router = express.Router();
-let jsonUtils = require('../helpers/json-utils');
 let config = require('../config/config.js');
 let winston = require('../config/winston');
 let request = require('request');
@@ -27,12 +26,12 @@ function getProjectsList (filters) {
     return rp(reqOptions).then(function (response) {
         winston.log('info', 'API: List Projects - ' +
             config.messages.statusCode + response.statusCode + ' - ' +
-        new Date());
+            config.loggerDate());
 
         return response.body;
     }).catch(function (err) {
         winston.log('error', config.messages.requestError + err + ' - ' +
-            new Date());
+            config.loggerDate());
     });
 }
 
@@ -57,13 +56,13 @@ router.post('/', function (req, res, next) {
         if (!error && response.statusCode === 200) {
             winston.log('info', 'API: List Projects - ' +
                 config.messages.statusCode + response.statusCode + ' - ' +
-                new Date());
+                config.loggerDate());
 
             //
         } else {
             winston.log('error', config.messages.requestError + error + ' - ' +
                 config.messages.statusCode + response.statusCode + ' - ' +
-                new Date());
+                config.loggerDate());
             next();
         }
 
@@ -81,13 +80,13 @@ router.post('/', function (req, res, next) {
         if (!error && response.statusCode === 200) {
             winston.log('info', 'API: List Projects - ' +
                 config.messages.statusCode + response.statusCode + ' - ' +
-                new Date());
+                config.loggerDate());
 
             //
         } else {
             winston.log('error', config.messages.requestError + error + ' - ' +
                 config.messages.statusCode + response.statusCode + ' - ' +
-                new Date());
+                config.loggerDate());
             next();
         }
 

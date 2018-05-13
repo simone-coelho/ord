@@ -126,7 +126,7 @@ let campaignJsonObj = [
             }],
         experiment_priorities: [
             [
-                0]],
+                0, 1, 2, 3]],
         holdback: 500,
         metrics: [
             {
@@ -138,7 +138,7 @@ let campaignJsonObj = [
             }],
         name: 'Landing Page Optimization',
         page_ids: [
-            0],
+            0, 1, 2],
         url_targeting: {
             conditions: '["and", {"type": "url", "match_type": "substring", "value": "optimize"}]',
             edit_url: 'https://www.optimizely.com',

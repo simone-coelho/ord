@@ -6,6 +6,7 @@ const fileUtils = require('../helpers/file-utils');
 const path = require('path');
 const winston = require('../config/winston');
 const Promise = require('bluebird');
+const config = require('../config/config.js');
 
 /**
  *
