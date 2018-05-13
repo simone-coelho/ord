@@ -1,0 +1,8 @@
+[ 'key',
+  'project_id',
+  'archived',
+  'description',
+  'name',
+  'condition_type',
+  'id',
+  'last_modified' ]

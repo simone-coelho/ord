@@ -1,0 +1,13 @@
+[ 'archived',
+  'category',
+  'config.selector',
+  'description',
+  'event_type',
+  'key',
+  'name',
+  'page_id',
+  'project_id',
+  'created',
+  'id',
+  'is_classic',
+  'is_editable' ]

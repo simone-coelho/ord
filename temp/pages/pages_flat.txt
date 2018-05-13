@@ -1,0 +1,13 @@
+[ { edit_url: 'https://www.optimizely.com',
+    name: 'Home Page',
+    project_id: 1000,
+    activation_code: 'function callbackFn(activate, options) { activate(); }',
+    activation_type: 'callback',
+    archived: false,
+    category: 'article',
+    conditions: '["and", {"type": "url", "match_type": "substring", "value": "optimize"}]',
+    key: 'home_page',
+    page_type: 'single_url',
+    created: '2018-05-10T04:58:42.839Z',
+    id: 4000,
+    last_modified: '2018-05-10T04:58:42.839Z' } ]

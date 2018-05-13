@@ -1,0 +1,12 @@
+CREATE TABLE tbl_audiences (
+        project_id DECIMAL NOT NULL,
+        archived BOOLEAN NOT NULL,
+        conditions VARCHAR NOT NULL,
+        description VARCHAR NOT NULL,
+        is_classic BOOLEAN NOT NULL,
+        name VARCHAR NOT NULL,
+        segmentation BOOLEAN NOT NULL,
+        created TIMESTAMP,
+        id DECIMAL NOT NULL,
+        last_modified TIMESTAMP
+);

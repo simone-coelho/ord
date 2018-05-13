@@ -1,0 +1,17 @@
+CREATE TABLE tbl_plans (
+        account_id DECIMAL NOT NULL,
+        plan_name VARCHAR NOT NULL,
+        "product_usages.allocation_term_in_months" DECIMAL NOT NULL,
+        "product_usages.end_time" TIMESTAMP,
+        "product_usages.last_update_time" TIMESTAMP,
+        "product_usages.overage_cents_per_visitor" DECIMAL NOT NULL,
+        "product_usages.product_name" VARCHAR NOT NULL,
+        "product_usages.projects.project_id" DECIMAL NOT NULL,
+        "product_usages.projects.project_name" VARCHAR NOT NULL,
+        "product_usages.projects.project_usage" DECIMAL NOT NULL,
+        "product_usages.start_time" TIMESTAMP,
+        "product_usages.usage" DECIMAL NOT NULL,
+        "product_usages.usage_allowance" DECIMAL NOT NULL,
+        status VARCHAR NOT NULL,
+        unit_of_measurement VARCHAR NOT NULL
+);

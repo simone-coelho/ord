@@ -1,0 +1,13 @@
+[ 'edit_url',
+  'name',
+  'project_id',
+  'activation_code',
+  'activation_type',
+  'archived',
+  'category',
+  'conditions',
+  'key',
+  'page_type',
+  'created',
+  'id',
+  'last_modified' ]

@@ -1,0 +1,13 @@
+[ { archived: true,
+    category: 'add_to_cart',
+    'config.selector': '.menu-options',
+    description: 'Item added to cart',
+    event_type: 'custom',
+    key: 'add_to_cart',
+    name: 'Add to Cart',
+    page_id: 5000,
+    project_id: 1000,
+    created: '2018-05-10T04:58:42.856Z',
+    id: 0,
+    is_classic: false,
+    is_editable: true } ]

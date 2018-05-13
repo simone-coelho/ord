@@ -1,0 +1,15 @@
+CREATE TABLE tbl_events (
+        archived BOOLEAN NOT NULL,
+        category VARCHAR NOT NULL,
+        "config.selector" VARCHAR NOT NULL,
+        description VARCHAR NOT NULL,
+        event_type VARCHAR NOT NULL,
+        key VARCHAR NOT NULL,
+        name VARCHAR NOT NULL,
+        page_id DECIMAL NOT NULL,
+        project_id DECIMAL NOT NULL,
+        created TIMESTAMP,
+        id BOOLEAN NOT NULL,
+        is_classic BOOLEAN NOT NULL,
+        is_editable BOOLEAN NOT NULL
+);

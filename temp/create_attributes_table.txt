@@ -1,0 +1,10 @@
+CREATE TABLE tbl_attributes (
+  key VARCHAR NOT NULL,
+  project_id BOOLEAN NOT NULL,
+  archived BOOLEAN NOT NULL,
+  description VARCHAR NOT NULL,
+  name VARCHAR NOT NULL,
+  condition_type VARCHAR NOT NULL,
+  id BOOLEAN NOT NULL,
+  last_modified TIMESTAMP
+);

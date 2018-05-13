@@ -1,0 +1,10 @@
+[ 'project_id',
+  'archived',
+  'conditions',
+  'description',
+  'is_classic',
+  'name',
+  'segmentation',
+  'created',
+  'id',
+  'last_modified' ]

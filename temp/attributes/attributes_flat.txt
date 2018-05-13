@@ -1,0 +1,8 @@
+[ { key: 'subscriber_status',
+    project_id: 0,
+    archived: false,
+    description: 'string',
+    name: 'Subscriber Status',
+    condition_type: 'custom_attribute',
+    id: 0,
+    last_modified: '2018-05-10T04:58:42.909Z' } ]

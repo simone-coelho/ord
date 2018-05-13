@@ -1,0 +1,15 @@
+CREATE TABLE pages_rows (
+        edit_url VARCHAR NOT NULL,
+        name VARCHAR NOT NULL,
+        project_id DECIMAL NOT NULL,
+        activation_code VARCHAR NOT NULL,
+        activation_type VARCHAR NOT NULL,
+        archived BOOLEAN NOT NULL,
+        category VARCHAR NOT NULL,
+        conditions VARCHAR NOT NULL,
+        key VARCHAR NOT NULL,
+        page_type VARCHAR NOT NULL,
+        created TIMESTAMP,
+        id DECIMAL NOT NULL,
+        last_modified TIMESTAMP
+);

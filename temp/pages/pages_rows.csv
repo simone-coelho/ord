@@ -1,0 +1,2 @@
+"edit_url","name","project_id","activation_code","activation_type","archived","category","conditions","key","page_type","created","id","last_modified"
+"https://www.optimizely.com","Home Page",1000,"function callbackFn(activate, options) { activate(); }","callback",false,"article","[""and"", {""type"": ""url"", ""match_type"": ""substring"", ""value"": ""optimize""}]","home_page","single_url","2018-05-10T04:58:42.839Z",4000,"2018-05-10T04:58:42.839Z"

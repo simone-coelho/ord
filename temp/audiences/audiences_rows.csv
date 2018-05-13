@@ -1,0 +1,2 @@
+"project_id","archived","conditions","description","is_classic","name","segmentation","created","id","last_modified"
+1000,false,"[""and"", {""type"": ""language"", ""value"": ""es""}, {""type"": ""location"", ""value"": ""US-CA-SANFRANCISCO""}]","People that speak spanish and are in San Francisco",true,"Spanish speaking San Franciscans",false,"2018-05-09T07:48:44.444Z",5000,"2018-05-09T07:48:44.444Z"
