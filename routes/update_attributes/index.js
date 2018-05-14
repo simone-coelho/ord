@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const jsonUtils = require('../helpers/json-utils');
-const httpUtils = require('../helpers/http-utils');
-const config = require('../config/config.js');
-let winston = require('../config/winston');
+const jsonUtils = require('../../helpers/json-utils');
+const httpUtils = require('../../helpers/http-utils');
+const config = require('../../config/config.js');
+let winston = require('../../config/winston');
 const Promise = require('bluebird');
 const rp = require('request-promise-native');
-const projects = require('../routes/projects');
+const projects = require('../index');
 const delay = require('delay');
 
 /**
