@@ -554,7 +554,7 @@
     </option>
     <option name="JS.INSTANCE_MEMBER_VARIABLE">
       <value>
-        <option name="FOREGROUND" value="77cdbd" />
+        <option name="FOREGROUND" value="6bbfaf" />
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
@@ -571,7 +571,7 @@
     </option>
     <option name="JS.LOCAL_VARIABLE">
       <value>
-        <option name="FOREGROUND" value="99ffff" />
+        <option name="FOREGROUND" value="b5fff2" />
       </value>
     </option>
     <option name="JS.NUMBER">
