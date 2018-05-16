@@ -9,7 +9,7 @@
     <option name="FORCE_QUOTE_STYlE" value="true" />
     <option name="ENFORCE_TRAILING_COMMA" value="WhenMultiline" />
     <option name="VAR_DECLARATION_WRAP" value="2" />
-    <option name="CHAINED_CALL_DOT_ON_NEW_LINE" value="false" />
+    <option name="OBJECT_LITERAL_WRAP" value="2" />
   </JSCodeStyleSettings>
   <codeStyleSettings language="JavaScript">
     <option name="RIGHT_MARGIN" value="80" />
@@ -24,7 +24,7 @@
     <option name="METHOD_PARAMETERS_WRAP" value="1" />
     <option name="METHOD_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true" />
     <option name="METHOD_PARAMETERS_RPAREN_ON_NEXT_LINE" value="true" />
-    <option name="METHOD_CALL_CHAIN_WRAP" value="5" />
+    <option name="METHOD_CALL_CHAIN_WRAP" value="2" />
     <option name="BINARY_OPERATION_WRAP" value="1" />
     <option name="TERNARY_OPERATION_WRAP" value="5" />
     <option name="TERNARY_OPERATION_SIGNS_ON_NEXT_LINE" value="true" />
