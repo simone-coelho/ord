@@ -1,16 +1,11 @@
 let express = require('express');
 let winston = require('./config/winston.js');
 let config = require('./config/config.js');
-//let passport = require('passport');
-let db = require('./db/index.js');
+let pgdb = require('./db/index.js');
 
-let app = express();
-//let router = express.router;
-
-// // Passport Authentication
-require('./express_server/index')(app);
-//require('./express_server/authentication/passport')(db);
-//require('./routes/authentication/')(passport, db);
+// Express initialization
+let app = module.exports = express();
+require('./express_server/index');
 
 // CSV Transform
 let projectsTransform = require('./db_transform/dbt_projects');
@@ -35,9 +30,16 @@ let planTransform = require('./db_transform/dbt_plan');
 // resultsTransform.transformObjToCSV();
 // planTransform.transformObjToCSV();
 
+// Generate password for development...
+// const bcrypt = require('bcrypt');
+// const pass = 'testing';
+// const saltRounds = 10; //the higher the better
+// const hashedPassword = bcrypt.hashSync(pass, saltRounds);
+// console.log(hashedPassword);
+
 // async/await - check out a client
 (async () => {
-  const client = await db.connect();
+  const client = await pgdb.connect();
   try {
     const res = await client.query(
         'SELECT * FROM tbl_experiments WHERE campaign_id = $1', [1234]);

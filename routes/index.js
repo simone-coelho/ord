@@ -1,5 +1,5 @@
 const routes = require('express').Router();
-let config = require('../config/config');
+const config = require('../config/config');
 
 // Routers
 const authRouter = require('../routes/authentication/index');

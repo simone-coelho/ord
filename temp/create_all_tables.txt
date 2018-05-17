@@ -6,12 +6,13 @@ DROP TABLE IF EXISTS tbl_experiments;
 DROP TABLE IF EXISTS tbl_pages;
 DROP TABLE IF EXISTS tbl_plans;
 DROP TABLE IF EXISTS tbl_projects;
+DROP TABLE IF EXISTS tbl_api_config;
 
 CREATE TABLE tbl_experiments (
   project_id BIGINT NOT NULL, 
   type VARCHAR, 
   audience_conditions VARCHAR, 
-  campaign_id DECIMAL, 
+  campaign_id BIGINT, 
   "changes.type" VARCHAR, 
   "changes.allow_additional_redirect" BOOLEAN, 
   "changes.async" BOOLEAN, 
@@ -152,17 +153,17 @@ CREATE TABLE tbl_audiences (
 CREATE TABLE tbl_plans (
   account_id BIGINT NOT NULL,
   plan_name VARCHAR,
-  "product_usages.allocation_term_in_months" BIGINT,
+  "product_usages.allocation_term_in_months" DECIMAL,
   "product_usages.end_time" TIMESTAMP,
   "product_usages.last_update_time" TIMESTAMP,
-  "product_usages.overage_cents_per_visitor" BIGINT,
+  "product_usages.overage_cents_per_visitor" DECIMAL,
   "product_usages.product_name" VARCHAR,
-  "product_usages.projects.project_id" BIGINT,
+  "product_usages.projects.project_id" DECIMAL,
   "product_usages.projects.project_name" VARCHAR,
-  "product_usages.projects.project_usage" BIGINT,
+  "product_usages.projects.project_usage" DECIMAL,
   "product_usages.start_time" TIMESTAMP,
-  "product_usages.usage" BIGINT,
-  "product_usages.usage_allowance" BIGINT,
+  "product_usages.usage" DECIMAL,
+  "product_usages.usage_allowance" DECIMAL,
   status VARCHAR,
   unit_of_measurement VARCHAR,
   CONSTRAINT tbl_plans_pk PRIMARY KEY (account_id) 
@@ -204,8 +205,8 @@ CREATE TABLE tbl_pages (
 
 CREATE TABLE tbl_projects (
   name VARCHAR,
-  confidence_threshold BIGINT,
-  dcp_service_id BIGINT,
+  confidence_threshold DECIMAL,
+  dcp_service_id DECIMAL,
   description VARCHAR,
   platform VARCHAR,
   sdks VARCHAR,
@@ -218,8 +219,8 @@ CREATE TABLE tbl_projects (
   "web_snippet.ip_filter" VARCHAR,
   "web_snippet.library" VARCHAR,
   "web_snippet.project_javascript" VARCHAR,
-  "web_snippet.code_revision" BOOLEAN,
-  "web_snippet.js_file_size" BIGINT,
+  "web_snippet.code_revision" character varying (50),
+  "web_snippet.js_file_size" DECIMAL,
   account_id BIGINT,
   created TIMESTAMP,
   id BIGINT NOT NULL,
@@ -267,7 +268,7 @@ CREATE TABLE tbl_campaigns (
   "changes.id" VARCHAR,
   "changes.src" VARCHAR,
   experiment_priorities VARCHAR,
-  holdback BIGINT,
+  holdback DECIMAL,
   "metrics.aggregator" VARCHAR,
   "metrics.event_id" BOOLEAN,
   "metrics.field" VARCHAR,
@@ -280,7 +281,7 @@ CREATE TABLE tbl_campaigns (
   "url_targeting.activation_code" VARCHAR,
   "url_targeting.activation_type" VARCHAR,
   "url_targeting.key" VARCHAR,
-  "url_targeting.page_id" BIGINT,
+  "url_targeting.page_id" DECIMAL,
   created TIMESTAMP,
   earliest TIMESTAMP,
   id BIGINT NOT NULL,
@@ -291,15 +292,15 @@ CREATE TABLE tbl_campaigns (
 );
 
 CREATE TABLE tbl_api_config (
-  id BIGINT NOT NULL,
-  username character varying(255) NOT NULL,
-  api_token VARCHAR,
-  account_id BIGINT NOT NULL,
-  description varchar,
-  notes varchar,
-  account_name character varying(255),
-  valid_token BOOLEAN,
-  CONSTRAINT tbl_api_config_pk PRIMARY KEY (id, account_id)
+    row_id BIGSERIAL NOT NULL,
+    username character varying(255) NOT NULL,
+    api_token VARCHAR,
+	account_id BIGINT NOT NULL,
+	description varchar,	
+    account_name character varying(255),
+	valid_token BOOLEAN,
+    CONSTRAINT tbl_api_config_pk PRIMARY KEY row_id, account_id)
 );
 
 
+account_id,confidence_threshold,created,description,id,is_classic,last_modified,name,platform,sdks,socket_token,status,web_snippet.code_revision,web_snippet.enable_force_variation,web_snippet.exclude_disabled_experiments,web_snippet.exclude_names,web_snippet.include_jquery,web_snippet.ip_anonymization,web_snippet.js_file_size,web_snippet.library,dcp_service_id,web_snippet.ip_filter,web_snippet.project_javascript

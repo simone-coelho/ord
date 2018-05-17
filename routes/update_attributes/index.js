@@ -3,15 +3,15 @@ const router = express.Router();
 const jsonUtils = require('../../helpers/json-utils');
 const httpUtils = require('../../helpers/http-utils');
 const config = require('../../config/config.js');
-let winston = require('../../config/winston');
+const winston = require('../../config/winston');
 const Promise = require('bluebird');
 const rp = require('request-promise-native');
 const projects = require('../index');
 const delay = require('delay');
 
 /**
- * Generates a list of URLs to retrieve all attribute list for projects in the list
- * Includes the "Auth Beareer Token"
+ * Generates a list of URLs to retrieve all attribute list for projects in the
+ * list Includes the "Auth Beareer Token"
  * @param projectList
  */
 function getAttributeURLS (projectList) {
@@ -62,7 +62,8 @@ router.post('/', function (req, res, next) {
 });
 
 /**
- * Retrieves all attributes for each individual project passed in the formatted url list
+ * Retrieves all attributes for each individual project passed in the formatted
+ * url list
  * @param urlList
  * @returns {Promise<Array>}
  */
@@ -81,13 +82,15 @@ async function getAttributesList (urlList) {
             if (response.statusCode === 200) {
                 attributesList.push(response.body);
                 winston.log('info', 'API: List Attributes - ' +
-                    config.messages.statusCode + response.statusCode + ' - ' + new Date());
+                    config.messages.statusCode + response.statusCode + ' - ' +
+                    config.loggerDate());
                 // winston.log('info', 'Header: List Attributes - ' + config.messages.statusCode +
                 //   response.rawHeaders);
             }
         } catch (error) {
             winston.log('error', 'API: List Attribute - ' +
-                config.messages.requestError + error + ' - ' + new Date());
+                config.messages.requestError + error + ' - ' +
+                config.loggerDate());
         }
     }
 
@@ -95,7 +98,8 @@ async function getAttributesList (urlList) {
 }
 
 /**
- * Builds all the update URLs and body payload to PATCH the corresponding attribute
+ * Builds all the update URLs and body payload to PATCH the corresponding
+ * attribute
  * @param allProjectsAttrLists
  */
 function getAttributeUpdateURLS (allProjectsAttrLists) {
@@ -139,7 +143,8 @@ function getAttributeUpdateURLS (allProjectsAttrLists) {
 }
 
 /**
- * Updates (PATCH) all the attributes passed in the request options configuration
+ * Updates (PATCH) all the attributes passed in the request options
+ * configuration
  * @param allAttrOptions // holds the request options and body payload JSON
  * @returns {Promise<Array>}
  */
@@ -154,14 +159,16 @@ async function updateAttributes (allAttrOptions) {
 
             if (response.statusCode === 200) {
                 winston.log('info', 'API: Update Attribute - ' +
-                    config.messages.statusCode + response.statusCode + ' - ' + new Date());
+                    config.messages.statusCode + response.statusCode + ' - ' +
+                    config.loggerDate());
             }
 
             resultList.push(response.project_id);
 
         } catch (error) {
             winston.log('error', 'API: Update Attribute - ' +
-                config.messages.requestError + error + ' - ' + new Date());
+                config.messages.requestError + error + ' - ' +
+                config.loggerDate());
         }
     }
     return (resultList);

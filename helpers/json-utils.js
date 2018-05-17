@@ -1,10 +1,24 @@
-let winston = require('../config/winston');
+const winston = require('../config/winston');
 const Promise = require('bluebird');
 const config = require('../config/config.js');
 
+//let newObj = JSON.parse(JSON.stringify(obj));
+
+// function cloneObject(obj) {
+//   var clone = {};
+//   for(var i in obj) {
+//     if(obj[i] != null &&  typeof(obj[i])=="object")
+//       clone[i] = cloneObject(obj[i]);
+//     else
+//       clone[i] = obj[i];
+//   }
+//   return clone;
+// }
+
 /**
  *
- * @type {{flattenJson: (function(*=)), unFlattenJson: module.exports.unFlattenJson}}
+ * @type {{flattenJson: (function(*=)), unFlattenJson:
+ *     module.exports.unFlattenJson}}
  */
 module.exports = {
 
@@ -83,7 +97,8 @@ module.exports = {
   },
 
   /**
-   * Flattens (unwinds) the projects list nested json object and returns a single level object.
+   * Flattens (unwinds) the projects list nested json object and returns a
+   * single level object.
    * @param jsonObject
    * @param filters
    * @returns {Array}
@@ -113,3 +128,28 @@ module.exports = {
   },
 
 };
+
+//
+// // function addslashes(str) {
+// //   return (str + '').replace(/[\\"']/g, '\\$&')
+// //       .replace(/\u0000/g, '\\0');
+// // }
+//
+// // function escapeRegExp(str) {
+// //   return str.replace(/[\-\[\]\/\{\}\(\)\\.\\\^\$\|]/g, "\\$&");
+// // }
+//
+// function escapeRegExp(str) {
+//   // Referring to the table here:
+//   //
+// https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/regexp
+// // these characters should be escaped \ ^ $ * + ? . ( ) | { } [ ] These //
+// characters only have special meaning inside of brackets they do not need //
+// to be escaped, but they MAY be escaped without any adverse effects (to //
+// the best of my knowledge and casual testing) : ! , = my test //
+// "~!@#$%^&*(){}[]`/=?+\|-_;:'\",<.>".match(/[\#]/g)  const specials = [ //
+// order matters for these '-', '[', ']' // order doesn't matter for any of
+// these , '/', '{', '}', '(', ')', '*', '+', '?', '.', '\\', '^', '$', '|', ];
+//  // I choose to escape every character with '\' // even though only some
+// strictly require it when inside of [] const regex = RegExp('[' + specials.join('\\') + ']', 'g');  return str.replace(regex, '\\$&');
+}

@@ -6,17 +6,24 @@
 /**
  *
  * Object holding default configuration values, messages and API Endpoints
- * @type {{apiEndpoints: {projectsList: string, project: string, campaignsList: string, campaign: string, experimentsList: string, experiment: string, audienceList: string, audiences: string}, db: {host: string, port: number, name: string}, debugLevel: {info: string, verbose: string, debug: string, error: string}, auth: {token: string, authHeader: {Authorization: string}}, messages: {expressError: string, requestError: string, invalidParameters: string, statusCode: string}, environment: {serverType: string}}}
+ * @type {{apiEndpoints: {projectsList: string, project: string, campaignsList:
+ *     string, campaign: string, experimentsList: string, experiment: string,
+ *     audienceList: string, audiences: string}, db: {host: string, port:
+ *     number, name: string}, debugLevel: {info: string, verbose: string,
+ *     debug: string, error: string}, auth: {token: string, authHeader:
+ *     {Authorization: string}}, messages: {expressError: string, requestError:
+ *     string, invalidParameters: string, statusCode: string}, environment:
+ *     {serverType: string}}}
  */
-const config = {
+let config = {
   apiEndpoints: {
     projectsList: 'https://api.optimizely.com/v2/projects',
-    project: 'https://api.optimizely.com/v2/projects/%id%',
-    campaignsList: 'https://api.optimizely.com/v2/campaigns?project_id=%id%',
-    campaign: 'https://api.optimizely.com/v2/campaigns/%id%',
-    experimentsList: 'https://api.optimizely.com/v2/experiments?project_id=%id%',
-    experiment: 'https://api.optimizely.com/v2/experiments/%id%',
-    audienceList: 'https://api.optimizely.com/v2/audiences?project_id=%id%',
+    project: 'https://api.optimizely.com/v2/projects/${id}',
+    campaignsList: 'https://api.optimizely.com/v2/campaigns?project_id=${id}',
+    campaign: 'https://api.optimizely.com/v2/campaigns/${id}',
+    experimentsList: 'https://api.optimizely.com/v2/experiments?project_id=${id}',
+    experiment: 'https://api.optimizely.com/v2/experiments/${id}',
+    audienceList: 'https://api.optimizely.com/v2/audiences?project_id=${id}',
     audiences: 'https://api.optimizely.com/v2/audiences/%id%',
     attributesList: 'https://api.optimizely.com/v2/attributes?project_id=%id%',
     attributes: 'https://api.optimizely.com/v2/attributes/%id%',
@@ -32,7 +39,9 @@ const config = {
   }, auth: {
     token: '2:nkzzrXzzYujxYVu4MTKypnD3TbkRFdo4-k7lULDDVqJG8RaRwT-A',
     authHeader: {'Authorization': 'Bearer 2:nkzzrXzzYujxYVu4MTKypnD3TbkRFdo4-k7lULDDVqJG8RaRwT-A'},
+    authHeaderAcct: {'Authorization': 'Bearer ${token}'},
     sessionSecret: 'asdflkjhg123456789mnbvcxz',
+    activeToken: '2:nkzzrXzzYujxYVu4MTKypnD3TbkRFdo4-k7lULDDVqJG8RaRwT-A',
   }, messages: {
     expressError: 'Express: ',
     requestError: 'Something went wrong on the remote server request: ',

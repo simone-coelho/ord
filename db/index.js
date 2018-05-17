@@ -6,14 +6,15 @@ const config = require('../config/config.js');
 // and client options
 // note: all config is optional and the environment variables
 // will be read if the config is not present
-let dbConfig = {
+const dbConfig = {
   user: process.env.DB_USER || 'postgres', //env var: DB_USER
   database: process.env.DB_NAME || 'optly_db', //env var: DB_NAME
   password: process.env.DB_PASSWORD || 'postgres', //env var: DB_PASSWORD
   host: process.env.DB_HOST || 'localhost', //env var: localhost
   port: process.env.DB_PORT || 5432, //env var: DB_PORT
   max: process.env.DB_MAX_CONNECTIONS || 10,  //env var: DB_MAX_CONNECTIONS
-  idleTimeoutMillis: process.env.DB_IDLE_TIMEOUT || 30000, //env var: DB_IDLE_TIMEOUT
+  idleTimeoutMillis: process.env.DB_IDLE_TIMEOUT || 90000, //env var:
+                                                           // DB_IDLE_TIMEOUT
 };
 
 // this initializes a connection pool

@@ -5,9 +5,9 @@ module.exports = {
 
   login: (req, res) => {
     if (req.user.type === 'admin') {
-      res.redirect('/admin/panel');
+      res.redirect('/api/v2/auth/admin/panel');
     } else {
-      res.redirect('/admin/login');
+      res.redirect('/api/v2/auth/admin/login');
     }
   },
 

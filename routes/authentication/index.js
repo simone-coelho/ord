@@ -8,33 +8,47 @@ const users = require('../../express_server/users');
 const admin = require('../../express_server/admin');
 const monitoring = require('../../express_server/monitoring');
 const passport = require('../../express_server/authentication/passport');
-let db = require('../../db/index.js');
+const pgdb = require('../../db/index.js');
 
-// router.get('/ping', function(req, res, next) {
-//   res.json({Found: 'Test'});
+router.get('/admin/panel', requiresAdmin, admin.renderPanel);
+
+router.post('/login', passport.authenticate('local'), users.login);
+
+router.get('/logout', users.logout);
+
+router.get('/ping', requiresLogin, users.ping);
+
+router.get('/admin/login', admin.renderLogin);
+
+router.post(
+    '/admin/login', passport.authenticate('local',
+                                          {failureRedirect: '/api/v2/auth/admin/login'},
+    ),
+    admin.login,
+);
+
+function handleResponse(res, code, statusMsg) {
+  res.status(code)
+      .json({status: statusMsg});
+}
+
+// router.post('/admin/login', (req, res, next) => {
+//   console.log(req.body);
+//   passport.authenticate('local', (err, user, info) => {
+//     if (err) { handleResponse(res, 500, 'error'); }
+//     if (!user) { handleResponse(res, 404, 'User not found'); }
+//     if (user) {
+//       req.logIn(user, function (err) {
+//         if (err) { handleResponse(res, 500, 'error'); }
+//         handleResponse(res, 200, 'success');
+//       });
+//     }
+//   })(req, res, next);
 // });
 
 router.get('/admin/panel', requiresAdmin, admin.renderPanel);
 
-router.post(
-    '/admin/login',
-    passport.authenticate('local', {failureRedirect: '/admin/login'}),
-    admin.login,
-);
-
-router.post('/login', passport.authenticate('local'), users.login);
-router.get('/logout', users.logout);
-router.get('/ping', requiresLogin, users.ping);
-
-router.get('/admin/login', admin.renderLogin);
-router.post(
-    '/admin/login',
-    passport.authenticate('local', {failureRedirect: '/admin/login'}),
-    admin.login,
-);
-router.get('/admin/panel', requiresAdmin, admin.renderPanel);
-
-router.get('/health', monitoring.health(db));
+router.get('/health', monitoring.health(pgdb));
 
 router.use(function(err, req, res, next) {
   if (err.message && (~err.message.indexOf('not found'))) {
