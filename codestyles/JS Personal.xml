@@ -1,4 +1,4 @@
-<code_scheme name="Default" version="173">
+<code_scheme name="JS Personal" version="173">
   <option name="RIGHT_MARGIN" value="180" />
   <option name="SOFT_MARGINS" value="120,190" />
   <JSCodeStyleSettings>
@@ -9,6 +9,8 @@
     <option name="FORCE_QUOTE_STYlE" value="true" />
     <option name="ENFORCE_TRAILING_COMMA" value="WhenMultiline" />
     <option name="VAR_DECLARATION_WRAP" value="2" />
+    <option name="OBJECT_LITERAL_WRAP" value="2" />
+    <option name="CHAINED_CALL_DOT_ON_NEW_LINE" value="false" />
   </JSCodeStyleSettings>
   <codeStyleSettings language="JavaScript">
     <option name="RIGHT_MARGIN" value="80" />
@@ -16,11 +18,12 @@
     <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
     <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
     <option name="ALIGN_MULTILINE_PARAMETERS_IN_CALLS" value="true" />
-    <option name="CALL_PARAMETERS_WRAP" value="5" />
+    <option name="CALL_PARAMETERS_WRAP" value="1" />
     <option name="PREFER_PARAMETERS_WRAP" value="true" />
     <option name="CALL_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true" />
+    <option name="METHOD_PARAMETERS_WRAP" value="1" />
     <option name="METHOD_PARAMETERS_LPAREN_ON_NEXT_LINE" value="true" />
-    <option name="METHOD_CALL_CHAIN_WRAP" value="2" />
+    <option name="METHOD_CALL_CHAIN_WRAP" value="5" />
     <option name="BINARY_OPERATION_WRAP" value="1" />
     <option name="TERNARY_OPERATION_WRAP" value="5" />
     <option name="TERNARY_OPERATION_SIGNS_ON_NEXT_LINE" value="true" />
