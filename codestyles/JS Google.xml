@@ -1,4 +1,4 @@
-<code_scheme name="JS Personal" version="173">
+<code_scheme name="JS Google" version="173">
   <option name="RIGHT_MARGIN" value="180" />
   <option name="SOFT_MARGINS" value="120,190" />
   <JSCodeStyleSettings>
@@ -28,6 +28,7 @@
     <option name="TERNARY_OPERATION_WRAP" value="5" />
     <option name="TERNARY_OPERATION_SIGNS_ON_NEXT_LINE" value="true" />
     <option name="KEEP_SIMPLE_BLOCKS_IN_ONE_LINE" value="true" />
+    <option name="KEEP_SIMPLE_METHODS_IN_ONE_LINE" value="true" />
     <option name="ARRAY_INITIALIZER_WRAP" value="5" />
     <option name="ARRAY_INITIALIZER_LBRACE_ON_NEXT_LINE" value="true" />
     <option name="ARRAY_INITIALIZER_RBRACE_ON_NEXT_LINE" value="true" />
