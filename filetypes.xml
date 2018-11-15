@@ -1,6 +1,7 @@
 <application>
   <component name="FileTypeManager" version="17">
     <extensionMap>
+      <mapping pattern="db" type="PLAIN_TEXT" />
       <mapping pattern="tokens_modify.hbs" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
