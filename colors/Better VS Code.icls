@@ -28,7 +28,7 @@
     <option name="LINE_NUMBERS_COLOR" value="569cd6" />
     <option name="METHOD_SEPARATORS_COLOR" value="f0f0f" />
     <option name="MODIFIED_LINES_COLOR" value="415f69" />
-    <option name="RECURSIVE_CALL_ATTRIBUTES" value="574300" />
+    <option name="RECURSIVE_CALL_ATTRIBUTES" value="b49200" />
     <option name="RIGHT_MARGIN_COLOR" value="3c3c3c" />
     <option name="SELECTED_INDENT_GUIDE" value="7177dc" />
     <option name="SELECTED_TEARLINE_COLOR" value="3399ff" />
@@ -64,7 +64,7 @@
     </option>
     <option name="BREAKPOINT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="3a2323" />
+        <option name="BACKGROUND" value="744545" />
       </value>
     </option>
     <option name="Block comment">
@@ -178,6 +178,24 @@
         <option name="FONT_TYPE" value="1" />
       </value>
     </option>
+    <option name="DEBUGGER_INLINED_VALUES_EXECUTION_LINE">
+      <value>
+        <option name="FOREGROUND" value="4eff9f" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="DEBUGGER_INLINED_VALUES_MODIFIED">
+      <value>
+        <option name="FOREGROUND" value="f7a321" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="DEFAULT_ATTRIBUTE">
+      <value>
+        <option name="FOREGROUND" value="8575ff" />
+        <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
     <option name="DEFAULT_BRACES">
       <value>
         <option name="FOREGROUND" value="ffffff" />
@@ -219,6 +237,12 @@
     <option name="DEFAULT_DOC_COMMENT_TAG">
       <value>
         <option name="FOREGROUND" value="9393cc" />
+      </value>
+    </option>
+    <option name="DEFAULT_DOC_COMMENT_TAG_VALUE">
+      <value>
+        <option name="FOREGROUND" value="939393" />
+        <option name="FONT_TYPE" value="3" />
       </value>
     </option>
     <option name="DEFAULT_DOC_MARKUP">
@@ -414,7 +438,7 @@
     </option>
     <option name="EXECUTIONPOINT_ATTRIBUTES">
       <value>
-        <option name="BACKGROUND" value="4551ff" />
+        <option name="BACKGROUND" value="435b6e" />
       </value>
     </option>
     <option name="FOLDED_TEXT_ATTRIBUTES">
@@ -590,6 +614,11 @@
     <option name="LOG_EXPIRED_ENTRY">
       <value>
         <option name="FOREGROUND" value="57a64a" />
+      </value>
+    </option>
+    <option name="LOG_VERBOSE_OUTPUT">
+      <value>
+        <option name="FOREGROUND" value="4242ff" />
       </value>
     </option>
     <option name="LOG_WARNING_OUTPUT">
