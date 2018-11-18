@@ -1,7 +1,7 @@
 <application>
   <component name="FindSettings">
-    <option name="customScope" value="File '...\server.js [ds_rpc]'" />
-    <option name="defaultScopeName" value="File '...\server.js [ds_rpc]'" />
-    <option name="SEARCH_SCOPE" value="File '...\server.js [ds_rpc]'" />
+    <option name="customScope" value="Project 'ds_rpc'" />
+    <option name="defaultScopeName" value="Project 'ds_rpc'" />
+    <option name="SEARCH_SCOPE" value="Project 'ds_rpc'" />
   </component>
 </application>
