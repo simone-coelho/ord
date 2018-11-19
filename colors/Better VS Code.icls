@@ -420,7 +420,7 @@
     </option>
     <option name="DUPLICATE_FROM_SERVER">
       <value>
-        <option name="BACKGROUND" value="5e5339" />
+        <option name="BACKGROUND" value="423927" />
       </value>
     </option>
     <option name="ENUM_NAME_ATTRIBUTES">
@@ -653,8 +653,8 @@
     </option>
     <option name="NOT_USED_ELEMENT_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="808080" />
-        <option name="EFFECT_COLOR" value="808080" />
+        <option name="FOREGROUND" value="bebebe" />
+        <option name="EFFECT_COLOR" value="b9b9b9" />
         <option name="EFFECT_TYPE" value="2" />
       </value>
     </option>
@@ -764,7 +764,7 @@
     <option name="WARNING_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="dedede" />
-        <option name="BACKGROUND" value="714975" />
+        <option name="BACKGROUND" value="955187" />
         <option name="ERROR_STRIPE_COLOR" value="8c8c00" />
         <option name="EFFECT_TYPE" value="5" />
       </value>
