@@ -30,8 +30,8 @@ const config = {
         warning: 'warning',
         none: 'none'
     }, auth: {
-        token: '2:nkzzrXzzYujxYVu4MTKypnD3TbkRFdo4-k7lULDDVqJG8RaRwT-A',
-        authHeader: {'Authorization': 'Bearer 2:nkzzrXzzYujxYVu4MTKypnD3TbkRFdo4-k7lULDDVqJG8RaRwT-A'}
+        token: '',
+        authHeader: {'Authorization': 'Bearer '}
     }, messages: {
         expressError: 'Express: ',
         requestError: 'Something went wrong on the remote server request: ',
