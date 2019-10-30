@@ -19,7 +19,7 @@
     "http-errors": "~1.6.2",
     "json2csv": "^4.1.2",
     "jsonfile": "^4.0.0",
-    "mongoose": "^5.0.17",
+    "mongoose": "^5.7.5",
     "morgan": "~1.9.0",
     "node-rest-client": "^3.1.0",
     "npm": "^6.0.0",
